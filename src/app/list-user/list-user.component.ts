@@ -11,12 +11,19 @@ import { ApiService } from '../core/api.service';
 export class ListUserComponent implements OnInit {
 
   users: User[];
+  loading = true;
   constructor(private router: Router, private apiService: ApiService) { }
 
+
   ngOnInit() {
-    this.users = [
-      new User(12, 'asdfasdf')
-    ];
+    // this.users = [
+    //   new User(12, 'asdfasdf')
+    // ];
+    this.apiService.getUsers()
+                      .subscribe(response => {
+                          this.users = response;
+                          this.loading = false;
+                      });
   }
   addUser(): void {
     this.router.navigate(['add-user']);
