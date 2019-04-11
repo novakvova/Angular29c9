@@ -13,12 +13,20 @@ export class AddUserComponent implements OnInit {
   addForm: FormGroup;
   submitted = false;
   loading = false;
+  error = {
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    age: '',
+    salary: ''
+  };
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private apiService: ApiService) { }
 
   ngOnInit() {
-    // const regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$';
+    const regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$';
     this.addForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -41,9 +49,14 @@ export class AddUserComponent implements OnInit {
     this.loading = true;
 
     this.apiService.createUser(this.addForm.value)
-      .subscribe( data => {
+      .subscribe(
+      data => {
         this.router.navigate(['list-user']);
-      });
+      },
+      badReasponse => {
+        this.error = badReasponse.error;
+        console.log('----error-----', this.error);
+      }
+    );
   }
-
 }

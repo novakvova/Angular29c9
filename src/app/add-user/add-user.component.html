@@ -11,6 +11,9 @@
         <div *ngIf="f.email.errors.required">Email is required</div>
         <div *ngIf="f.email.errors.email">Email invalid</div>
       </div>
+      <div *ngIf="error.email" style="color:red;">
+        <div>{{error.email}}</div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -22,6 +25,9 @@
       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
         <div>Password min length 6</div>
       </div>
+      <div *ngIf="error.password" style="color:red;">
+        <div>{{error.password}}</div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -31,6 +37,9 @@
       name="firstName" class="form-control" id="firstName">
       <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
         <div *ngIf="f.firstName.errors.required">FirstName is required</div>
+      </div>
+      <div *ngIf="error.firstName" style="color:red;">
+        <div>{{error.firstName}}</div>
       </div>
     </div>
 
@@ -42,6 +51,9 @@
       <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
         <div *ngIf="f.lastName.errors.required">LastName is required</div>
       </div>
+      <div *ngIf="error.lastName" style="color:red;">
+        <div>{{error.lastName}}</div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -51,6 +63,9 @@
       placeholder="age" name="age" class="form-control" id="age">
       <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
         <div *ngIf="f.age.errors.required">Age is required</div>
+      </div>
+      <div *ngIf="error.age" style="color:red;">
+        <div>{{error.age}}</div>
       </div>
     </div>
 
@@ -62,9 +77,11 @@
         <div *ngIf="submitted && f.salary.errors" class="invalid-feedback">
           <div *ngIf="f.salary.errors.required">Age is required</div>
         </div>
+        <div *ngIf="error.salary" style="color:red;">
+          <div>{{error.salary}}</div>
+        </div>
     </div>
 
     <button class="btn btn-success" [disabled]="loading">Add</button>
   </form>
 </div>
-

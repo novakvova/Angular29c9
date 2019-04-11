@@ -10,3 +10,12 @@ export class User {
     this.firstName = firstName;
   }
 }
+
+export class UserAdd {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  salary: number;
+  age: number;
+}
