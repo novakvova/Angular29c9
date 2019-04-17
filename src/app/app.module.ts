@@ -10,6 +10,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { ApiService } from './core/api.service';
+import { ConfirmemailComponent } from './confirmemail/confirmemail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ApiService } from './core/api.service';
     LoginComponent,
     AddUserComponent,
     EditUserComponent,
-    ListUserComponent
+    ListUserComponent,
+    ConfirmemailComponent
   ],
   imports: [
     BrowserModule,
